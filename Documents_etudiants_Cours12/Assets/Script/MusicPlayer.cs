@@ -4,7 +4,20 @@ using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour {
 
-    private void Awake() {
-     
+    public void Start()
+    {
+        int numberOfMusicPlays = FindObjectsOfType<MusicPlayer>().Length;
+
+        if (numberOfMusicPlays > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+
+
     }
+
 }
